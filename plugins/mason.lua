@@ -8,7 +8,6 @@ return {
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
-        "efm",
       })
     end,
   },
@@ -34,30 +33,30 @@ return {
       })
     end,
   },
-  require 'lspconfig'.efm.setup {
-      init_options = {documentFormatting = true},
-      settings = {
-        rootMarkers = {".git/"},
-        languages = {
-          lua = {
-            {
-              formatCommand = "stylua --config-path ~/.config/stylua/stylua.toml -",
-              formatStdin = true
-            },
-          },
-          yaml = {
-            {
-              formatCommand = "prettier --stdin-filepath ${INPUT}",
-              formatStdin = true
-            },
-          },
-          cmake = {
-            {
-              formatCommand = "cmake-format $HOME/.config/.cmake-format -l error -",
-              formatStdin = true
-            },
-          },
-        },
-      },
-    },
+  -- require 'lspconfig'.efm.setup {
+  --   init_options = { documentFormatting = true },
+  --   settings = {
+  --     rootMarkers = { ".git/" },
+  --     languages = {
+  --       lua = {
+  --         {
+  --           formatCommand = "stylua --config-path ~/.config/stylua/stylua.toml -",
+  --           formatStdin = true
+  --         },
+  --       },
+  --       yaml = {
+  --         {
+  --           formatCommand = "prettier --stdin-filepath ${INPUT}",
+  --           formatStdin = true
+  --         },
+  --       },
+  --       cmake = {
+  --         {
+  --           formatCommand = "cmake-format $HOME/.config/.cmake-format -l error -",
+  --           formatStdin = true
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }
